@@ -2,6 +2,8 @@
 *.pt
 *.pkl
 
+.venv/
+
 /cache
 /gt
 

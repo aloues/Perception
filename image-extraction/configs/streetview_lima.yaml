@@ -1,0 +1,86 @@
+# Configuración de recolección Street View para los distritos de Lima.
+# SIN SECRETOS: la clave se lee de la variable de entorno GOOGLE_STREETVIEW_API_KEY
+# (mismo nombre que usaba downloadImage.py vía .env).
+#
+# Los parámetros de cámara se copiaron LITERALMENTE de image-extraction/downloadImage.py
+# (get_images_google) y se verificaron contra la metadata histórica de embeddings
+# (external_assets/embeddings_export/metadata.json: 30,866 vistas, headings exactamente
+# {0, 30, ..., 330}). Ver docs/RECOLECCION_BARRANCO_LA_VICTORIA_AUDIT.md.
+
+camera:                      # NO cambiar sin documentar antes/después (prompt maestro §7.2)
+  provider: google_streetview_static
+  size: "640x400"            # downloadImage.py: size = "640x400"
+  fov: 90                    # downloadImage.py: fov = 90
+  pitch: 0                   # downloadImage.py: pitch = 0
+  heading_start: 0           # downloadImage.py: range(0, 360, 30)
+  heading_step: 30
+  n_headings: 12
+  request_by: location       # histórico: &location=lat,lon en cada heading (no por pano id)
+  return_error_code: true    # NUEVO: 404 en vez de imagen gris "sin cobertura" (el histórico
+                             # guardaba esos placeholders; 415 acabaron en graph/blacklist.json)
+  source: default            # histórico: no pasaba &source (= default)
+  radius_m: 50               # histórico: no pasaba &radius (= 50 m por defecto de la API)
+
+mapillary:                   # downloadImage.py también llamaba a Mapillary (≤ 8 imágenes a < 20 m),
+  enabled: false             # pero NINGUNA imagen Mapillary llegó a los embeddings (extract_embeddings
+  bbox_half_m: 20            # solo lee archivos 'heading_*'). Se deja desactivado por defecto.
+  max_images: 8
+  max_dist_m: 20
+
+storage:
+  root: image-extraction/data          # relativo a la raíz del repo; NO versionado
+  view_filename: "heading_{heading}.jpg"   # convención histórica (la parsea extract_embeddings.py)
+  min_valid_bytes: 15000               # el histórico marcó como inválidos archivos de 10.5–12.4 KB
+
+network:
+  timeout_s: 30
+  max_retries: 4
+  backoff_base_s: 1.5
+  max_requests_per_s: 10
+  max_consecutive_errors: 25
+
+cost:                        # [VERIFICAR en la consola de Google Cloud antes de lanzar]
+  usd_per_1000_static: 7.0   # tarifa pública de Street View Static API (rango 0–100k) conocida a la fecha
+  free_calls_per_month: 10000  # cupo gratuito mensual por SKU (esquema de 2025); confirmar en la cuenta
+  metadata_is_free: true     # el endpoint /streetview/metadata no se factura
+  cap_usd_total: 270         # TOPE DURO (prompt maestro 2026-10-29 §5): 300 USD de crédito − 30 de reserva
+  ledger: image-extraction/data/_budget/ledger.csv   # relativo a la raíz del repo; NO versionado
+
+osm:
+  network_type: drive        # graph/graph_pipeline.py: network_type="drive", simplify=True
+  simplify: true
+  cache_folder: external_assets/osm_cache
+
+districts:
+  barranco:
+    name: Barranco
+    osm_query: "Barranco, Lima, Peru"        # = graph/graph_pipeline.py DISTRITOS
+    crime_name: Barranco
+    folder_crime: Inseguros-Barranco-GGZ-{year}
+  la_victoria:
+    name: La Victoria
+    osm_query: "La Victoria, Lima, Peru"
+    crime_name: La Victoria
+    folder_crime: Inseguros-La_Victoria-GGZ-{year}
+  san_isidro:
+    name: San Isidro
+    osm_query: "San Isidro, Lima, Peru"
+    crime_name: San Isidro                    # SÍ hay puntos 2016 en distritos/ (1,258)
+    folder_crime: Inseguros-San_Isidro-GGZ-{year}
+  lince:
+    name: Lince
+    osm_query: "Lince, Lima, Peru"
+    crime_name: null                          # NO hay registros de Lince en crimen_distritos_seleccionados.csv
+    folder_crime: null
+
+spot_sources:
+  crime_points:              # réplica EXACTA del histórico: un spot por registro de labels_{year}_{distrito}.csv
+    labels_dir: distritos/outputs/csv
+    year: 2016
+  street_sampling:           # NUEVO (recomendado): puntos a lo largo de cada segmento OSM
+    spacing_m: 50
+    min_segment_m: 10
+    folder: StreetSample-{name}-s{spacing}
+  grid:                      # alternativa del repo: image-extraction/extract-district.py (grilla de 80 m)
+    step_m: 80
+    folder: Grid-{name}-g{step}

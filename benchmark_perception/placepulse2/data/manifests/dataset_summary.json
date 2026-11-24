@@ -1,0 +1,157 @@
+{
+  "primary_source": {
+    "file": "external_assets/placepulse2/extracted/votes.tsv",
+    "origin": "Center for Collective Learning — place-pulse-2.0.zip",
+    "role": "comparaciones humanas originales (ground truth principal)"
+  },
+  "cross_check_source": {
+    "file": "external_assets/placepulse2/raw/votes_clean.csv",
+    "origin": "Figshare DOI 10.6084/m9.figshare.11859993",
+    "license": "CC BY 4.0",
+    "role": "contraste de provenance"
+  },
+  "excluded_from_ground_truth": {
+    "qscores.tsv": "TrueSkill — score DERIVADO, no comparacion humana"
+  },
+  "studies": [
+    {
+      "_id": "50a68a51fdc9f05596000002",
+      "num_votes": "511037",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "safer_multicity",
+      "study_public": "yes",
+      "study_question": "safer"
+    },
+    {
+      "_id": "50f62c41a84ea7c5fdd2e454",
+      "num_votes": "367476",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "livelier_multicity",
+      "study_public": "yes",
+      "study_question": "livelier"
+    },
+    {
+      "_id": "50f62c68a84ea7c5fdd2e456",
+      "num_votes": "144068",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "cleaner_multicity",
+      "study_public": "yes",
+      "study_question": "more boring"
+    },
+    {
+      "_id": "50f62cb7a84ea7c5fdd2e458",
+      "num_votes": "174784",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "wealthy_multicity",
+      "study_public": "yes",
+      "study_question": "wealthier"
+    },
+    {
+      "_id": "50f62ccfa84ea7c5fdd2e459",
+      "num_votes": "149361",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "depressing_multicity",
+      "study_public": "yes",
+      "study_question": "more depressing"
+    },
+    {
+      "_id": "5217c351ad93a7d3e7b07a64",
+      "num_votes": "220656",
+      "owner": "deepak.jagdish@gmail.com",
+      "study_name": "more beautiful",
+      "study_public": "yes",
+      "study_question": "more beautiful"
+    }
+  ],
+  "safe_study_id": "50a68a51fdc9f05596000002",
+  "total_votes_all_attributes": 1555561,
+  "safe": {
+    "n_votes_declared_in_studies_tsv": 511037,
+    "n_votes_in_votes_tsv": 506165,
+    "n_votes_in_votes_clean_csv": 509961,
+    "choice_values_raw": {
+      "right": 225271,
+      "left": 217781,
+      "equal": 63113
+    },
+    "n_invalid_choice_rows": 0,
+    "n_votes_valid": 506165,
+    "n_ties": 63113,
+    "tie_fraction": 0.124689,
+    "n_left": 217781,
+    "n_right": 225271,
+    "n_voters": 48398,
+    "n_unique_locations_referenced": 111389,
+    "n_cities": 56,
+    "cities": {
+      "Atlanta": 4059,
+      "Berlin": 3987,
+      "Tokyo": 3795,
+      "Rio De Janeiro": 3684,
+      "Santiago": 3500,
+      "New York": 3411,
+      "Sydney": 3371,
+      "Toronto": 3308,
+      "Chicago": 3223,
+      "Houston": 3086,
+      "Warsaw": 3002,
+      "Sao Paulo": 2982,
+      "Moscow": 2893,
+      "Philadelphia": 2790,
+      "Melbourne": 2726,
+      "London": 2688,
+      "Montreal": 2625,
+      "Singapore": 2616,
+      "Cape Town": 2515,
+      "Paris": 2484,
+      "Denver": 2409,
+      "Munich": 2238,
+      "Rome": 2182,
+      "Bucharest": 2169,
+      "Madrid": 2158,
+      "Mexico City": 2103,
+      "Belo Horizonte": 1969,
+      "Portland": 1936,
+      "Lisbon": 1890,
+      "Johannesburg": 1871,
+      "Prague": 1743,
+      "Milan": 1723,
+      "Bangkok": 1617,
+      "Dublin": 1573,
+      "Guadalajara": 1552,
+      "Seattle": 1510,
+      "Barcelona": 1443,
+      "Taipei": 1387,
+      "Boston": 1333,
+      "Los Angeles": 1294,
+      "Stockholm": 1179,
+      "Zagreb": 1082,
+      "San Francisco": 1027,
+      "Washington DC": 954,
+      "Glasgow": 951,
+      "Kiev": 891,
+      "Minneapolis": 844,
+      "Kyoto": 729,
+      "Gaborone": 715,
+      "Helsinki": 688,
+      "Bratislava": 640,
+      "Tel Aviv": 640,
+      "Amsterdam": 637,
+      "Hong Kong": 633,
+      "Copenhagen": 506,
+      "Valparaiso": 428
+    },
+    "n_locations_without_row_in_locations_tsv": 0,
+    "n_unique_ordered_pairs": 499714,
+    "n_unique_unordered_pairs": 499703,
+    "n_repeated_pairs": 6462,
+    "n_pairs_with_both_orientations": 11,
+    "n_self_pairs": 0
+  },
+  "images": {
+    "n_images_in_zip": 110988,
+    "n_referenced_by_safe_votes": 111389,
+    "n_missing_images": 402,
+    "n_images_unused_by_safe": 1
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "seed": 42,
+  "n_pairs": 440758,
+  "protocols": {
+    "paper_protocol": {
+      "sizes": {
+        "train": 286492,
+        "val": 22037,
+        "test": 132229
+      },
+      "warning": "Split aleatorio de PARES: una misma imagen puede aparecer en train y test. Se usa para comparabilidad historica, no como unica evidencia de generalizacion."
+    },
+    "image_disjoint": {
+      "sizes": {
+        "train": 158312,
+        "val": 6437,
+        "test": 34607
+      },
+      "n_images": 104860,
+      "n_images_per_partition": {
+        "train": 62916,
+        "val": 12583,
+        "test": 29361
+      },
+      "n_pairs_total": 440758,
+      "n_pairs_kept": 199356,
+      "n_pairs_discarded_cross_partition": 241402,
+      "fraction_kept": 0.452303
+    },
+    "city_holdout": {
+      "sizes": {
+        "train": 240581,
+        "val": 18506,
+        "test_strict": 23749,
+        "test_touch": 181671
+      },
+      "holdout_cities": [
+        "Tokyo",
+        "Bangkok",
+        "Cape Town",
+        "Gaborone",
+        "Rio De Janeiro",
+        "Santiago",
+        "Moscow",
+        "Barcelona",
+        "Melbourne",
+        "Houston"
+      ],
+      "n_train": 240581,
+      "n_val": 18506,
+      "n_test_strict": 23749,
+      "n_test_touch": 181671,
+      "per_city": {
+        "Tokyo": {
+          "n_in_test_strict": 6552,
+          "n_intra_city_only": 465,
+          "n_in_test_touch": 29602
+        },
+        "Bangkok": {
+          "n_in_test_strict": 2817,
+          "n_intra_city_only": 86,
+          "n_in_test_touch": 12820
+        },
+        "Cape Town": {
+          "n_in_test_strict": 4475,
+          "n_intra_city_only": 230,
+          "n_in_test_touch": 19948
+        },
+        "Gaborone": {
+          "n_in_test_strict": 1245,
+          "n_intra_city_only": 19,
+          "n_in_test_touch": 5485
+        },
+        "Rio De Janeiro": {
+          "n_in_test_strict": 6341,
+          "n_intra_city_only": 457,
+          "n_in_test_touch": 29728
+        },
+        "Santiago": {
+          "n_in_test_strict": 5858,
+          "n_intra_city_only": 422,
+          "n_in_test_touch": 26503
+        },
+        "Moscow": {
+          "n_in_test_strict": 4941,
+          "n_intra_city_only": 286,
+          "n_in_test_touch": 22274
+        },
+        "Barcelona": {
+          "n_in_test_strict": 2580,
+          "n_intra_city_only": 65,
+          "n_in_test_touch": 11264
+        },
+        "Melbourne": {
+          "n_in_test_strict": 4848,
+          "n_intra_city_only": 256,
+          "n_in_test_touch": 21424
+        },
+        "Houston": {
+          "n_in_test_strict": 5245,
+          "n_intra_city_only": 310,
+          "n_in_test_touch": 23776
+        }
+      },
+      "warning_strict": "test_strict tiene muy pocos pares por ciudad (solo el 2.21% de los pares del dataset son intra-ciudad). Reportar SIEMPRE con intervalo de confianza y tamano de muestra.",
+      "warning_touch": "En test_touch una de las dos imagenes puede pertenecer a una ciudad vista en entrenamiento. Mide transferencia relativa, no aislamiento total del dominio."
+    }
+  }
+}

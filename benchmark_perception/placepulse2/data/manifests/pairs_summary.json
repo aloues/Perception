@@ -1,0 +1,32 @@
+{
+  "ground_truth_source": "external_assets/placepulse2/extracted/votes.tsv",
+  "safe_study_id": "50a68a51fdc9f05596000002",
+  "excluded_source": {
+    "qscores.tsv": "TrueSkill derivado — no es ground truth"
+  },
+  "funnel": {
+    "votes_all_attributes": 1555561,
+    "votes_safe": 506165,
+    "dropped_invalid_choice": 0,
+    "dropped_missing_image": 2874,
+    "ties_separated": 62533,
+    "decisive_pairs": 440758
+  },
+  "tie_policy": "Los ties se excluyen del entrenamiento del probe y se reportan por separado en pairs_safe_ties.csv. No se eliminan en silencio.",
+  "label_convention": "label=1 si gano la imagen izquierda; logit = s_left - s_right",
+  "decisive": {
+    "n_pairs": 440758,
+    "n_label_1_left_wins": 216647,
+    "n_label_0_right_wins": 224111,
+    "balance_left": 0.491533,
+    "n_unique_images": 104860,
+    "n_voters": 47444,
+    "n_cities": 56,
+    "n_same_city_pairs": 9748,
+    "same_city_fraction": 0.022116
+  },
+  "ties": {
+    "n_pairs": 62533,
+    "n_unique_images": 87043
+  }
+}

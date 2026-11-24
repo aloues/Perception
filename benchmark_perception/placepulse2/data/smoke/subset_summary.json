@@ -1,0 +1,110 @@
+{
+  "seed": 42,
+  "target_n_images": 20000,
+  "n_images": 20000,
+  "n_cities": 56,
+  "selection_rule": "por ciudad, top-k por grado en el grafo de pares (k proporcional al tamano de la ciudad); desempate deterministico por location_id",
+  "n_pairs_kept": 58678,
+  "n_pairs_total": 440758,
+  "fraction_pairs_kept": 0.13313,
+  "label_balance_kept": 0.4920753945260575,
+  "per_city_images": {
+    "Atlanta": 727,
+    "Berlin": 718,
+    "Tokyo": 682,
+    "Rio De Janeiro": 659,
+    "Santiago": 630,
+    "New York": 612,
+    "Sydney": 605,
+    "Toronto": 592,
+    "Chicago": 580,
+    "Houston": 556,
+    "Warsaw": 540,
+    "Sao Paulo": 536,
+    "Moscow": 519,
+    "Philadelphia": 501,
+    "Melbourne": 491,
+    "London": 483,
+    "Montreal": 472,
+    "Singapore": 469,
+    "Cape Town": 453,
+    "Paris": 447,
+    "Denver": 432,
+    "Munich": 401,
+    "Rome": 392,
+    "Bucharest": 390,
+    "Madrid": 389,
+    "Mexico City": 378,
+    "Belo Horizonte": 354,
+    "Portland": 347,
+    "Lisbon": 337,
+    "Johannesburg": 336,
+    "Prague": 312,
+    "Milan": 310,
+    "Bangkok": 287,
+    "Dublin": 283,
+    "Guadalajara": 279,
+    "Seattle": 272,
+    "Barcelona": 260,
+    "Taipei": 250,
+    "Boston": 239,
+    "Los Angeles": 233,
+    "Stockholm": 212,
+    "Zagreb": 195,
+    "San Francisco": 183,
+    "Washington DC": 172,
+    "Glasgow": 171,
+    "Kiev": 160,
+    "Minneapolis": 152,
+    "Kyoto": 130,
+    "Helsinki": 124,
+    "Gaborone": 124,
+    "Tel Aviv": 115,
+    "Amsterdam": 115,
+    "Bratislava": 115,
+    "Hong Kong": 112,
+    "Copenhagen": 90,
+    "Valparaiso": 77
+  },
+  "protocols": {
+    "paper_protocol": {
+      "sizes": {
+        "train": 38130,
+        "val": 2926,
+        "test": 17622
+      },
+      "sizes_full": {
+        "train": 286492,
+        "val": 22037,
+        "test": 132229
+      }
+    },
+    "image_disjoint": {
+      "sizes": {
+        "train": 20826,
+        "val": 916,
+        "test": 4746
+      },
+      "sizes_full": {
+        "train": 158312,
+        "val": 6437,
+        "test": 34607
+      }
+    },
+    "city_holdout": {
+      "sizes": {
+        "train": 31859,
+        "val": 2484,
+        "test_strict": 3255,
+        "test_touch": 24335
+      },
+      "sizes_full": {
+        "train": 240581,
+        "val": 18506,
+        "test_strict": 23749,
+        "test_touch": 181671
+      }
+    }
+  },
+  "status": "PRELIMINARY / SMOKE TEST"
+}
